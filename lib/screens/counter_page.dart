@@ -1,4 +1,4 @@
-import 'package:city_map_flutter/screens/counter.dart';
+import 'package:city_map_flutter/store/counter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -30,6 +30,12 @@ class CounterPageState extends State<CounterPage> {
                         '${counter.value}',
                         style: const TextStyle(fontSize: 40),
                       )),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('back', style: TextStyle(fontSize: 20)),
+              ),
             ],
           ),
         ),

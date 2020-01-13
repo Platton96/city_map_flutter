@@ -15,4 +15,8 @@ abstract class _Counter with Store {
   void increament() {
     value++;
   }
+
+  void goBack() {
+    
+  }
 }
