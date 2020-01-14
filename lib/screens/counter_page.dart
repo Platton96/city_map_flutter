@@ -1,19 +1,20 @@
 import 'package:city_map_flutter/store/counter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:provider/provider.dart';
 
 class CounterPage extends StatefulWidget {
-  const CounterPage();
 
   @override
   CounterPageState createState() => CounterPageState();
 }
 
 class CounterPageState extends State<CounterPage> {
-  final Counter counter = Counter();
 
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context){
+  final counter = Provider.of<Counter>(context);
+
+   return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue,
           title: const Text('MobX Counter'),
@@ -25,11 +26,10 @@ class CounterPageState extends State<CounterPage> {
               const Text(
                 'You have pushed the button this many times:',
               ),
-              Observer(
-                  builder: (_) => Text(
-                        '${counter.value}',
-                        style: const TextStyle(fontSize: 40),
-                      )),
+              Text(
+                '${counter.getCounter()}',
+                style: const TextStyle(fontSize: 40),
+              ),
               RaisedButton(
                 onPressed: () {
                   Navigator.pop(context);
@@ -45,4 +45,4 @@ class CounterPageState extends State<CounterPage> {
           child: const Icon(Icons.add),
         ),
       );
-}
+}}

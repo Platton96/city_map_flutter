@@ -1,19 +1,16 @@
-import 'package:mobx/mobx.dart';
+import 'package:flutter/material.dart';
 
-part 'counter.g.dart';
+class Counter with ChangeNotifier {
 
-class Counter = _Counter with _$Counter;
+Counter(this._counter);
 
-abstract class _Counter with Store {
-  @observable
-  int value = 0;
+  getCounter() => _counter;
+  setCounter(int counter) => _counter = counter;
+  int _counter;
 
-  @computed
-  int get data => 2 * value;
-
-  @action
   void increament() {
-    value++;
+     _counter++;
+    notifyListeners();
   }
 
   void goBack() {

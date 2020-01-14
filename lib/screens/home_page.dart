@@ -1,13 +1,14 @@
 import 'package:city_map_flutter/screens/counter_page.dart';
 import 'package:city_map_flutter/screens/random_words_page.dart';
-import 'package:english_words/english_words.dart';
+import 'package:city_map_flutter/store/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final wordPair = WordPair.random();
+    final home = Provider.of<Home>(context);
     return Scaffold(
         appBar: AppBar(
           title: Text('Home page'),
@@ -15,7 +16,7 @@ class HomePage extends StatelessWidget {
         body: Center(
           child: Column(children: <Widget>[
             RaisedButton(
-              child: Text(wordPair.asPascalCase),
+              child: Text('toCounter'),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -25,13 +26,8 @@ class HomePage extends StatelessWidget {
             ),
             SizedBox(height: 12,),
             RaisedButton(
-              child: Text(wordPair.asPascalCase),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => RandomWordsPage()),
-                );
-              },    
+              child: Text('${home.getRandomButtonText()}'),
+              onPressed:home.changeButtonText,    
             )
           ]),
         ));
