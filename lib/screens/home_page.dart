@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => RandomWords()),
+                  MaterialPageRoute(builder: (context) => RandomWordsPage()),
                 );
               },    
             )

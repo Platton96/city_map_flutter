@@ -1,11 +1,11 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
-class RandomWords extends StatefulWidget {
+class RandomWordsPage extends StatefulWidget {
   @override
-  RandomWordsState createState() => RandomWordsState();
+  RandomWordsPageState createState() => RandomWordsPageState();
 }
-class RandomWordsState extends State<RandomWords> {
+class RandomWordsPageState extends State<RandomWordsPage> {
   final _suggestions = <WordPair>[];
   final _biggerFont = const TextStyle(fontSize: 18.0);
   // ···
