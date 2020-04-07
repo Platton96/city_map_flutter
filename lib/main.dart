@@ -1,20 +1,28 @@
+import 'package:city_map_flutter/screens/counter_page.dart';
+import 'package:city_map_flutter/screens/home_page.dart';
+import 'package:city_map_flutter/store/counter.dart';
+import 'package:city_map_flutter/store/home.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => Counter(0)),
+        ChangeNotifierProvider(create: (context) => Home("randomTex"))
+      ],
+      child: MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Welcome to Flutter'),
-        ),
-        body: Center(
-          child: Text('Hello World'),
-        ),
-      ),
-    );
+    return MaterialApp(home: HomePage());
   }
 }
+
+
+
